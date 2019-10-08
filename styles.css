@@ -1,0 +1,106 @@
+/*-------------------New and Improved Code--------------------*/
+
+.page__container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  flex-flow: wrap;
+  background-image: url("BG__seashore.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+.intro__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro__header {
+  color: rgb(0, 183, 255);
+  text-shadow: 2px 2px 2px rgb(240, 113, 155), -2px -2px 2px rgb(56, 76, 119);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.intro__text {
+  text-align: justify;
+}
+
+.title__container {
+  display: flex;
+  background-color: palevioletred;
+  color: rgb(56, 76, 119);
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  border-style: double;
+}
+
+.title__name {
+  color: rgb(226, 106, 146);
+  background-color: rgb(65, 95, 158);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  margin: auto;
+  margin-left: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-style: double;
+  font-family: "Courgette", cursive;
+  text-shadow: 2px 2px 2px rgb(0, 183, 255), -2px -2px 2px rgb(56, 76, 119);
+}
+
+.title__description {
+  margin: auto;
+  margin-left: 0;
+  margin-top: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.page__content {
+  width: 60%;
+  background-color: rgba(216, 112, 147, 0.349);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.experience__header {
+  color: rgb(56, 76, 119);
+  margin-top: 50px;
+  border-bottom-style: dotted;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgb(240, 113, 155), -2px -2px 2px rgb(0, 183, 255);
+}
+
+.record__header {
+  color: rgb(240, 113, 155);
+  text-shadow: 4px 4px 4px rgb(56, 76, 119);
+}
+
+#picOfSonia {
+  width: 30%;
+  height: 30%;
+  border-radius: 300px;
+  margin: auto;
+  border-style: dotted;
+  color: rgb(240, 113, 155);
+}
+
+ul,
+table {
+  text-align: left;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Arial, Helvetica, sans-serif;
+}
