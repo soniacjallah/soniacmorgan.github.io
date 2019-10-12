@@ -10,11 +10,11 @@
       <div class="wrapper">
         <div class="header">Test JSON page</div>
         <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-        <button class="button" onclick="loadData()">
+        <button class="button" onclick="clickMe()">
           Click me to replace list entries
         </button>
         <div class="content">
-          <ul class="instructions">
+          <ol id="instructions">
             <li>Delete and re-clone the class repository</li>
             <li>
               Open <span class="code">lab_5_json.html</span> in your browser
@@ -30,7 +30,7 @@
                 <li>Randomize which fifty countries are displayed on load</li>
               </ol>
             </li>
-          </ul>
+          </ol>
         </div>
         <div class="footer"></div>
       </div>
@@ -282,23 +282,42 @@
         { name: "Zambia", code: "ZM" },
         { name: "Zimbabwe", code: "ZW" }
       ];
+
       console.log("List of countries in the world", countries);
 
-      function loadData(string) {
-        //clear list
-        var instructions = "";
+      sessionStorage.setItem("countryList", JSON.stringify(countries));
 
-        //loop to create a list of 50 elements
-        for (let i = 0; i < 50; i += 1) {
-          
-          //Append a list element with a random country to the inner html of the list 1 time
-          
-          instructions += ("<li>" + countries[Math.floor(Math.random() * 244)] + "</li>");
-          
+      function clickMe() {
+        const RD = sessionStorage.getItem("countryList");
+
+        var nameandcode = JSON.parse(RD);
+        var names = nameandcode.map(item => item.name);
+
+        console.log(nameandcode);
+        console.log(names);
+
+        var randos = [];
+        while (randos.length < 50) {
+          var rando = Math.floor(Math.random() * 243) + 1;
+          if (randos.indexOf(rando) === -1) randos.push(rando);
+        }
+
+        var nameA = "";
+        var i;
+
+        for (i = 0; i < 50; i += 1) {
+          nameA += "<li>" + names[randos[i]] + "</li>";
+        }
+
+        console.log(nameA);
+
+
+        document.getElementById("instructions").innerHTML = "" + nameA;
+
+        console.log("these are now countires" + document.getElementById("instructions").innerHTML);
+     
+
       }
-      console.log(instructions);
-    }
-
     </script>
   </body>
 </html>
