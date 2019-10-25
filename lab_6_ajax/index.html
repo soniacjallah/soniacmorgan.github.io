@@ -1,65 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Test AJAX page</title>
+    <link rel="stylesheet" type="text/css" href="./lab_styles.css" />
+  </head>
 
-<head>
-  <title>Test AJAX page</title>
-  <link rel="stylesheet" type="text/css" href="./lab_styles.css">
-</head>
-
-<body>
-  <div class="container">
-    <div class="wrapper">
-      <div class="header">Test AJAX page</div>
-      <button class="button" onclick="loadData()">Load Some JSON</button>
-      <div class="content"></div>
-      <div class="footer"></div>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="header">Test AJAX page</div>
+        <button class="button" onclick="loadData()">Load Some JSON</button>
+        <div class="content" id="instructions"></div>
+        <div class="footer"></div>
+      </div>
     </div>
-  </div>
-  <script>
-    function loadData() {
-      fetch('ajax_sample.json')
-        .then(res => res.json())
-        .then(res => res.map(c => c.code))
-        .then(codes => document.querySelector(".content").innerText = codes);
+    <script>
+      function loadData() {
+        var randos = [];
+        while (randos.length < 15) {
+          var rando = Math.floor(Math.random() * 243) + 1;
+          if (randos.indexOf(rando) === -1) randos.push(rando);
+        }
 
+        var nameA = "";
+        var i;
 
-        
-    }
-  </script>
-</body>
-
+        fetch("ajax_sample.json")
+          .then(res => res.json())
+          .then(res => res.map(c => c.name))
+          .then(data =>
+            randos.forEach(function(rando) {
+              nameA += "<li>" + data[rando] + "</li>";
+              i++;
+              console.log(nameA);
+              document.getElementById("instructions").innerHTML =
+                "<ol>" + nameA + "</ol>";
+            })
+          );
+      }
+    </script>
+  </body>
 </html>
-
-/*
-function clickMe() {
-  const RD = sessionStorage.getItem("countryList");
-
-  var nameandcode = JSON.parse(RD);
-  var names = nameandcode.map(item => item.name);
-
-  console.log(nameandcode);
-  console.log(names);
-
-  var randos = [];
-  while (randos.length < 50) {
-    var rando = Math.floor(Math.random() * 243) + 1;
-    if (randos.indexOf(rando) === -1) randos.push(rando);
-  }
-
-  var nameA = "";
-  var i;
-
-  for (i = 0; i < 50; i += 1) {
-    nameA += "<li>" + names[randos[i]] + "</li>";
-  }
-
-  console.log(nameA);
-
-
-  document.getElementById("instructions").innerHTML = "" + nameA;
-
-  console.log("these are now countires" + document.getElementById("instructions").innerHTML);
-
-
-}
-*/
